@@ -52,3 +52,7 @@ Here are all of the variables and their default values:
   --dri-height: 1.5rem;
 }
 ```
+
+## TODO
+
+- Remove highlight on tap, on mobile
