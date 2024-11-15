@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native Dual Range Input</title>
+
+  <link href="https://muffinman.io/favicon/blue/icon-32.ico" rel="icon" sizes="any">
+  <link href="https://muffinman.io/favicon/blue/icon.svg" rel="icon" type="image/svg+xml">
+  <link href="https://muffinman.io/favicon/blue/icon-180.png" rel="apple-touch-icon">
+  <link href="https://muffinman.io/favicon/blue/manifest.webmanifest" rel="manifest">
+  <script type="module" crossorigin src="./assets/index-DXqu-7S5.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B8aTO_S2.css">
+</head>
+
+<body>
+  <main>
+    <h1>Native Dual Range Input</h1>
+    <div class="links">
+      <a href="https://github.com/stanko/dual-range-input">GitHub</a> &bull; <a
+        href="https://muffinman.io/blog/native-dual-range-input">Blog post</a>
+    </div>
+    <p>
+      The native part is somewhat open for discussion.
+      But the implementation uses two native range inputs
+      and about eighty lines of TypeScript to make them work together.
+      In my book, it is <i>native enough</i>.
+    </p>
+    <div class="demo demo--blank">
+      <h2>How it works</h2>
+      <p>
+        On change, mid-point is calculated, inputs are resized,
+        and their <code>min</code> and <code>max</code> attributes are adjusted.
+      </p>
+      <p>
+        Here you can see the unstyled example.
+        Even like this, it works reasonably well, but it is somewhat jittery.
+      </p>
+      <div class="inputs">
+        <input list="tickmarks" type="range" min="0" max="50" step="1" value="10">
+        <input list="tickmarks" type="range" min="0" max="50" step="1" value="40">
+      </div>
+      <div class="values"></div>
+    </div>
+    <div class="demo">
+      <p>
+        When a user clicks between the thumbs,
+        because the inputs are resized to the mid-point,
+        the user will move the thumb that is closer to the point of the click.
+      </p>
+      <p>It is easier to see if you <button type="button" class="toggle-debug">toggle the debug mode</button>.</p>
+      <div class="dual-range-input">
+        <input type="range" min="0" max="100" step="1" value="25">
+        <input type="range" min="0" max="100" step="1" value="75">
+      </div>
+      <div class="values"></div>
+    </div>
+    <div class="demo demo--purple">
+      <p>
+        Styling is done through a bunch of CSS variables. Here you can see a few more examples.
+      </p>
+      <div class="dual-range-input">
+        <input type="range" min="20" max="30" step="0.1" value="20">
+        <input type="range" min="20" max="30" step="0.1" value="25.5">
+      </div>
+      <div class="values"></div>
+    </div>
+    <div class="demo demo--pink">
+      <div class="dual-range-input">
+        <input type="range" min="0" max="100" step="1" value="25">
+        <input type="range" min="0" max="100" step="1" value="75">
+      </div>
+      <div class="values"></div>
+    </div>
+
+    <div class="demo demo--thick">
+      <div class="dual-range-input">
+        <input type="range" min="0" max="100" step="1" value="25">
+        <input type="range" min="0" max="100" step="1" value="75">
+      </div>
+      <div class="values"></div>
+    </div>
+  </main>
+
+  <datalist id="tickmarks">
+  </datalist>
+
+</body>
+
+</html>

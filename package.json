@@ -1,0 +1,26 @@
+{
+  "name": "@stanko/dual-range-input",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.80.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Stanko/dual-range-input.git"
+  },
+  "keywords": [],
+  "author": "Stanko",
+  "bugs": {
+    "url": "https://github.com/Stanko/dual-range-input/issues"
+  },
+  "homepage": "https://muffinman.io/dual-range-input"
+}
