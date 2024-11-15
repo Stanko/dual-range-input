@@ -39,16 +39,16 @@ Here are all of the variables and their default values:
   --dri-thumb-height: 1rem;
 
   --dri-thumb-color: #ddd;
-  --dri-thumb-active-color: rgb(78, 170, 255);
   --dri-thumb-hover-color: rgb(168, 213, 255);
+  --dri-thumb-active-color: rgb(78, 170, 255);
   --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
+  --dri-thumb-border-radius: 1rem;
 
   --dri-track-height: 0.25rem;
   --dri-track-color: #ccc;
   --dri-track-filled-color: rgb(0, 132, 255);
   --dri-track-border-radius: 1rem;
 
-  --dri-thumb-border-radius: 1rem;
   --dri-height: 1.5rem;
 }
 ```
