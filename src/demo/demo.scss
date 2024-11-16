@@ -93,7 +93,9 @@ a,
 .values {
   display: flex;
   justify-content: space-between;
-  font-size: 1rem;
+  margin: 0;
+  font-family: 'Menlo', 'DejaVu Sans', 'Courier New', monospace;
+  font-size: 0.875rem;
 }
 
 .debug {
@@ -128,14 +130,18 @@ a,
   input {
     flex-basis: 50%;
     min-width: 1rem;
+    margin: 0;
+    padding: 0.5rem 0;
   }
 
   input:first-child {
     accent-color: rgb(0, 142, 128);
+    outline: 1px solid rgba(0, 142, 128, 0.5);
   }
 
   input:last-child {
     accent-color: rgb(221, 0, 140);
+    outline: 1px solid rgba(221, 0, 140, 0.5);
   }
 }
 

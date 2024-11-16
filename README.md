@@ -55,4 +55,9 @@ Here are all of the variables and their default values:
 
 ## TODO
 
-- Remove highlight on tap, on mobile
+- [x] Remove highlight on tap, on mobile
+- [ ] Update readme
+- [ ] Publish the package
+- [ ] Add (p)react version
+- [ ] Write a blog post
+- [x] RTL
