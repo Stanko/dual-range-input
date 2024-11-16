@@ -100,15 +100,18 @@ a,
 
 .debug {
   .dual-range-input input {
-    outline: 1px solid rgba(0, 0, 0, 0.15);
     outline-offset: -1px;
   }
 
   input:first-child {
+    outline: 1px solid rgba(255, 165, 0, 0.5);
     --dri-track-filled-color: rgb(254, 195, 85);
     --dri-thumb-color: orange;
     --dri-thumb-hover-color: rgb(236, 154, 0);
     --dri-thumb-active-color: rgb(207, 134, 0);
+  }
+  input:last-child {
+    outline: 1px solid var(--dri-thumb-hover-color);
   }
 }
 
