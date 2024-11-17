@@ -1,11 +1,11 @@
 # Native Dual Range Input
 
-**Readme is still work in progress.**
-
 The native part is somewhat open for discussion.
 But the implementation uses two native range inputs
-and about fifty lines of JavaScript to make them work together.
-In my book, it is _native enough_.
+and about [fifty lines of JavaScript](https://cdn.jsdelivr.net/npm/@stanko/dual-range-input/dist/index.js) to make them work together.
+
+It still uses all of the native interactions and accessibility features.
+In my book, that is _native enough_.
 
 ## Usage
 
