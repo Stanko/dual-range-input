@@ -102,12 +102,17 @@
     outline: none;
   }
 
+  // Setting initial values for the gradient variables
+  // Without them Safari doesn't render the gradient on the first render for some reason
   input:first-child {
     --dri-gradient-position: 100%;
   }
+
   input:last-child {
     --dri-gradient-position: 0%;
   }
+
+  // Selectors for Firefox and Webkit can't be combined
 
   // ----- Firefox ----- //
   input::-moz-range-track {

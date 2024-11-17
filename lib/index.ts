@@ -18,11 +18,11 @@ class DualRangeInput {
     this.$max.dataset.ready = 'true';
   }
 
-  updateFloor = () => this.update('floor');
+  private updateFloor = () => this.update('floor');
 
-  updateCeil = () => this.update('ceil');
+  private updateCeil = () => this.update('ceil');
 
-  update(method: 'floor' | 'ceil' = 'floor') {
+  private update(method: 'floor' | 'ceil' = 'floor') {
     const min = parseFloat(this.$min.min);
     const max = parseFloat(this.$max.max);
     const step = parseFloat(this.$min.step);
@@ -48,8 +48,8 @@ class DualRangeInput {
     this.$min.style.flexBasis = `calc(${leftWidth}% + ${thumbWidthVariable})`;
     this.$max.style.flexBasis = `calc(${rightWidth}% + ${thumbWidthVariable})`;
 
-    this.$min.max = mid.toFixed(3);
-    this.$max.min = mid.toFixed(3);
+    this.$min.max = mid.toString();
+    this.$max.min = mid.toString();
 
     const minFill = (minValue - min) / (mid - min) || 0;
     const maxFill = (maxValue - mid) / (max - mid) || 0;

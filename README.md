@@ -4,7 +4,7 @@
 
 The native part is somewhat open for discussion.
 But the implementation uses two native range inputs
-and about eighty lines of TypeScript to make them work together.
+and about fifty lines of JavaScript to make them work together.
 In my book, it is _native enough_.
 
 ## Usage
@@ -21,10 +21,20 @@ Required markup:
 JavaScript:
 
 ```js
+import DualRangeInput from '@stanko/dual-range-input';
+
 const $min = document.querySelector('#min');
 const $max = document.querySelector('#max');
 
 new DualRangeInput($min, $max);
+```
+
+CSS:
+
+Don't forget to include CSS
+
+```
+@stanko/dual-range-input/dist/index.css
 ```
 
 ### Styling
@@ -56,8 +66,8 @@ Here are all of the variables and their default values:
 ## TODO
 
 - [x] Remove highlight on tap, on mobile
-- [ ] Update readme
-- [ ] Publish the package
+- [x] Update readme
+- [x] Publish the package
 - [ ] Add (p)react version
 - [ ] Write a blog post
 - [x] RTL

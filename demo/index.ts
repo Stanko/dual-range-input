@@ -1,4 +1,4 @@
-import DualRangeInput from '../dual-range-input';
+import DualRangeInput from '../lib/index';
 
 const datalist = document.querySelector('#tickmarks') as HTMLDataListElement;
 

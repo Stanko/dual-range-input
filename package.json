@@ -1,12 +1,19 @@
 {
   "name": "@stanko/dual-range-input",
-  "private": true,
-  "version": "1.0.0",
+  "description": "Native dual range input in about fifty lines of JavaScript",
+  "version": "0.9.0",
+  "private": false,
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "vite --host",
-    "build": "tsc && vite build && git add ./docs",
-    "preview": "vite preview"
+    "build": "npm run build-demo && npm run build-lib && npm run build-sass",
+    "build-demo": "tsc && vite build && git add ./docs",
+    "build-lib": "rm -rf ./dist && tsc",
+    "build-sass": "sass ./lib/index.scss ./dist/index.css && cp ./lib/index.scss ./docs/index.scss",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "sass": "^1.80.3",
@@ -17,10 +24,21 @@
     "type": "git",
     "url": "git+ssh://git@github.com/Stanko/dual-range-input.git"
   },
-  "keywords": [],
+  "keywords": [
+    "dual range input",
+    "range input",
+    "input",
+    "slider",
+    "range slider"
+  ],
   "author": "Stanko",
   "bugs": {
     "url": "https://github.com/Stanko/dual-range-input/issues"
   },
-  "homepage": "https://muffinman.io/dual-range-input"
+  "homepage": "https://muffinman.io/dual-range-input",
+  "files": [
+    "dist/",
+    "CHANGELOG.md",
+    "README.md"
+  ]
 }

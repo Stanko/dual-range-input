@@ -1,0 +1,191 @@
+// ----- Mixins ----- //
+
+@mixin dri-track {
+  background-color: var(--dri-track-color);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  height: var(--dri-track-height);
+}
+
+@mixin dri-track-min() {
+  border-start-start-radius: var(--dri-track-border-radius);
+  border-end-start-radius: var(--dri-track-border-radius);
+
+  background-image: linear-gradient(
+    to right,
+    var(--dri-track-color) var(--dri-gradient-position),
+    var(--dri-track-filled-color) var(--dri-gradient-position)
+  );
+
+  [dir='rtl'] & {
+    background-image: linear-gradient(
+      to left,
+      var(--dri-track-color) var(--dri-gradient-position),
+      var(--dri-track-filled-color) var(--dri-gradient-position)
+    );
+  }
+}
+
+@mixin dri-track-max() {
+  border-start-end-radius: var(--dri-track-border-radius);
+  border-end-end-radius: var(--dri-track-border-radius);
+
+  background-image: linear-gradient(
+    to right,
+    var(--dri-track-filled-color) var(--dri-gradient-position),
+    var(--dri-track-color) var(--dri-gradient-position)
+  );
+
+  [dir='rtl'] & {
+    background-image: linear-gradient(
+      to left,
+      var(--dri-track-filled-color) var(--dri-gradient-position),
+      var(--dri-track-color) var(--dri-gradient-position)
+    );
+  }
+}
+
+@mixin dri-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--dri-thumb-color);
+  border-radius: var(--dri-thumb-border-radius);
+  border: 1px solid var(--dri-thumb-border-color);
+  box-shadow: none;
+  box-sizing: border-box;
+  height: var(--dri-thumb-height);
+  width: var(--dri-thumb-width);
+}
+
+.dual-range-input {
+  --dri-thumb-width: 1rem;
+  --dri-thumb-height: 1rem;
+
+  --dri-thumb-color: #ddd;
+  --dri-thumb-hover-color: rgb(168, 213, 255);
+  --dri-thumb-active-color: rgb(78, 170, 255);
+  --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
+  --dri-thumb-border-radius: 1rem;
+
+  --dri-track-height: 0.25rem;
+  --dri-track-color: #ccc;
+  --dri-track-filled-color: rgb(0, 132, 255);
+  --dri-track-border-radius: 1rem;
+
+  --dri-height: 1.5rem;
+
+  display: flex;
+  height: var(--dri-height);
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  // Hack to make enough space for inputs that have flex-shrink: 0
+  padding-inline-end: calc(var(--dri-thumb-width) * 2);
+
+  &:has(input:focus-visible) {
+    outline: 1px solid var(--dri-thumb-active-color);
+    outline-offset: 2px;
+  }
+
+  input {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border-radius: none;
+    flex-basis: calc(50% + var(--dri-thumb-width));
+    flex-shrink: 0;
+    font-size: inherit;
+    height: 100%;
+    margin: 0;
+    min-width: var(--dri-thumb-width);
+    outline: none;
+  }
+
+  // Setting initial values for the gradient variables
+  // Without them Safari doesn't render the gradient on the first render for some reason
+  input:first-child {
+    --dri-gradient-position: 100%;
+  }
+
+  input:last-child {
+    --dri-gradient-position: 0%;
+  }
+
+  // Selectors for Firefox and Webkit can't be combined
+
+  // ----- Firefox ----- //
+  input::-moz-range-track {
+    @include dri-track;
+  }
+
+  input:first-child::-moz-range-track {
+    @include dri-track-min;
+  }
+
+  input:last-child::-moz-range-track {
+    @include dri-track-max;
+  }
+
+  input::-moz-range-thumb {
+    @include dri-thumb;
+    // In Firefox, thumb jumps above the track if the input is the same width as the thumb.
+    // This fixes it, but I would like to find the root cause.
+    max-width: 99.99%;
+  }
+
+  // Hide thumb until JavaScript updates it
+  input:not([data-ready='true'])::-moz-range-thumb {
+    opacity: 0;
+  }
+
+  input:hover::-moz-range-thumb {
+    background-color: var(--dri-thumb-hover-color);
+  }
+
+  input:active::-moz-range-thumb {
+    background-color: var(--dri-thumb-active-color);
+  }
+
+  input:focus-visible::-moz-range-thumb {
+    background-color: var(--dri-thumb-active-color);
+  }
+
+  // ----- Webkit ----- //
+
+  input::-webkit-slider-runnable-track {
+    @include dri-track;
+  }
+
+  input:first-child::-webkit-slider-runnable-track {
+    @include dri-track-min;
+  }
+
+  input:last-child::-webkit-slider-runnable-track {
+    @include dri-track-max;
+  }
+
+  input::-webkit-slider-thumb {
+    @include dri-thumb;
+    // Center thumb vertically, Webkit only
+    margin-top: calc(var(--dri-track-height) / 2);
+    transform: translateY(-50%);
+  }
+
+  input:hover::-webkit-slider-thumb {
+    background-color: var(--dri-thumb-hover-color);
+  }
+
+  // Hide thumb until JavaScript updates it
+  input:not([data-ready='true'])::-webkit-slider-thumb {
+    opacity: 0;
+  }
+
+  input:active::-webkit-slider-thumb {
+    background-color: var(--dri-thumb-active-color);
+  }
+
+  input:focus-visible::-webkit-slider-thumb {
+    background-color: var(--dri-thumb-active-color);
+  }
+}
