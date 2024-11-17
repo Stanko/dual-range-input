@@ -1,7 +1,7 @@
 {
   "name": "@stanko/dual-range-input",
   "description": "Native dual range input in about fifty lines of JavaScript",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "private": false,
   "type": "module",
   "main": "dist/index.js",
@@ -11,7 +11,7 @@
     "build": "npm run build-demo && npm run build-lib && npm run build-sass",
     "build-demo": "tsc && vite build && git add ./docs",
     "build-lib": "rm -rf ./dist && tsc",
-    "build-sass": "sass ./lib/index.scss ./dist/index.css && cp ./lib/index.scss ./docs/index.scss",
+    "build-sass": "sass ./lib/index.scss ./dist/index.css && cp ./lib/index.scss ./dist/index.scss",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
   },
