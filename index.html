@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/demo/index.scss">
   <link rel="stylesheet" href="/lib/index.scss">
 
-  <meta name="description" content="Native dual range input in 80 lines of JavaScript.">
+  <meta name="description" content="Native dual range input in fifty lines of JavaScript.">
 
   <link href="https://muffinman.io/favicon/blue/icon-32.ico" rel="icon" sizes="any">
   <link href="https://muffinman.io/favicon/blue/icon.svg" rel="icon" type="image/svg+xml">
@@ -21,50 +21,37 @@
     <h1>Native Dual Range Input</h1>
     <div class="links">
       <a href="https://github.com/stanko/dual-range-input">GitHub</a>
-      <!-- &bull; <a href="https://muffinman.io/blog/native-dual-range-input">Blog post</a> -->
+      &bull; <a href="https://muffinman.io/blog/native-dual-range-input">Blog post</a>
     </div>
-    <p>
-      The native part is somewhat open for discussion.
-      But the implementation uses two native range inputs
-      and about fifty lines of TypeScript to make them work together.
-    </p>
-    <p>
-      It still uses all of the native interactions and accessibility features.
-      In my book, that is <i>native enough</i>.
-    </p>
-    <div class="demo demo--blank">
-      <h2>How it works</h2>
-      <p>
-        On change, mid-point is calculated, inputs are resized,
-        and their <code>min</code> and <code>max</code> attributes are adjusted.
-      </p>
-      <p>
-        Here you can see the unstyled example.
-        Even like this, it works reasonably well, but it is somewhat jittery.
-      </p>
-      <div class="inputs">
-        <input list="tickmarks" type="range" min="0" max="50" step="1" value="10">
-        <input list="tickmarks" type="range" min="0" max="50" step="1" value="40">
-      </div>
-      <pre class="values"></pre>
-    </div>
+
     <div class="demo">
-      <p>
-        When a user clicks between the thumbs,
-        because the inputs are resized to the mid-point,
-        the user will move the thumb that is closer to the point of the click.
-      </p>
-      <p>It is easier to see if you <button type="button" class="toggle-debug">toggle the debug mode</button>.</p>
       <div class="dual-range-input">
         <input type="range" min="0" max="100" step="1" value="25">
         <input type="range" min="0" max="100" step="1" value="75">
       </div>
       <pre class="values"></pre>
     </div>
+    <p>
+      The native part is somewhat open for discussion - the library uses two native range inputs
+      and about fifty lines of JavaScript to make them work together.
+      In my book, it is <i>native enough</i>.
+    </p>
+
+    <p>
+      If you are interested in how it works, please check the <a
+        href="https://muffinman.io/blog/native-dual-range-input">blog post</a>
+      or <button type="button" class="toggle-debug">toggle the debug mode</button>.
+    </p>
+
+    <h2>Examples</h2>
+
+    <p>
+      Styling is done through
+      <a href="https://github.com/stanko/dual-range-input?tab=readme-ov-file#styling">CSS variables</a>.
+      Below you can see a few differently styled examples.
+    </p>
+
     <div class="demo demo--purple">
-      <p>
-        Styling is done through a bunch of CSS variables. Here you can see a few more examples.
-      </p>
       <div class="dual-range-input">
         <input type="range" min="20" max="30" step="0.1" value="20">
         <input type="range" min="20" max="30" step="0.1" value="25.5">

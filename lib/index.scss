@@ -62,14 +62,14 @@
   --dri-thumb-height: 1rem;
 
   --dri-thumb-color: #ddd;
-  --dri-thumb-hover-color: rgb(168, 213, 255);
-  --dri-thumb-active-color: rgb(78, 170, 255);
+  --dri-thumb-hover-color: #a8d5ff;
+  --dri-thumb-active-color: #4eaaff;
   --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
   --dri-thumb-border-radius: 1rem;
 
   --dri-track-height: 0.25rem;
   --dri-track-color: #ccc;
-  --dri-track-filled-color: rgb(0, 132, 255);
+  --dri-track-filled-color: #0084ff;
   --dri-track-border-radius: 1rem;
 
   --dri-height: 1.5rem;
@@ -92,7 +92,7 @@
     -webkit-appearance: none;
     appearance: none;
     background: none;
-    border-radius: none;
+    border-radius: 0;
     flex-basis: calc(50% + var(--dri-thumb-width));
     flex-shrink: 0;
     font-size: inherit;
