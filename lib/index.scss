@@ -58,8 +58,8 @@
 }
 
 .dual-range-input {
-  --dri-thumb-width: 1rem;
-  --dri-thumb-height: 1rem;
+  --dri-thumb-width: 1.25rem;
+  --dri-thumb-height: 1.25rem;
 
   --dri-thumb-color: #ddd;
   --dri-thumb-hover-color: #a8d5ff;
@@ -83,8 +83,9 @@
   padding-inline-end: calc(var(--dri-thumb-width) * 2);
 
   &:has(input:focus-visible) {
-    outline: 1px solid var(--dri-thumb-active-color);
-    outline-offset: 2px;
+    outline: 2px solid var(--dri-thumb-active-color);
+    outline-offset: 4px;
+    border-radius: 4px;
   }
 
   input {

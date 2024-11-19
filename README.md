@@ -52,8 +52,8 @@ Here are all of the variables and their default values:
 
 ```css
 .dual-range-input {
-  --dri-thumb-width: 1rem;
-  --dri-thumb-height: 1rem;
+  --dri-thumb-width: 1.25rem;
+  --dri-thumb-height: 1.25rem;
 
   --dri-thumb-color: #ddd;
   --dri-thumb-hover-color: #a8d5ff;
@@ -67,6 +67,39 @@ Here are all of the variables and their default values:
   --dri-track-border-radius: 1rem;
 
   --dri-height: 1.5rem;
+}
+```
+
+To create your own styling, just change the variables. For example here is code for the purple example from the demo page:
+
+```scss
+.dual-range-input--purple {
+  --dri-thumb-width: 2rem;
+  --dri-thumb-height: 2rem;
+
+  --dri-thumb-color: #ddd;
+  --dri-thumb-active-color: #682af8;
+  --dri-thumb-hover-color: #b697ff;
+
+  --dri-track-filled-color: #682af8;
+
+  --dri-height: 2rem;
+}
+```
+
+This gives you:
+
+![Dual range input styled in purple](./purple-example.png)
+
+### :focus-visible styles
+
+These are the default focus styles, feel free to override them.
+
+```scss
+.dual-range-input:has(input:focus-visible) {
+  outline: 2px solid var(--dri-thumb-active-color);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 ```
 
