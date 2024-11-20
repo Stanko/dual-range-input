@@ -109,13 +109,31 @@ These are the default focus styles, feel free to override them.
 
 ## API
 
-- The only available public method is `destroy()` which removes event listeners set by the library.
+- `update(method: 'floor' | 'ceil' = 'ceil')`
 
-```js
-const priceInput = new DualRangeInput($min, $max);
+  The main method that updates the mid-point and the gradient fill. You should call it only when you make direct changes to one of the input's value.
 
-priceInput.destroy();
-```
+  `method` is the rounding method used for the mid-point. It is used only when the midpoint falls between two tickmarks. In the case of direct value changes, this doesn't matter much. However, the library uses `ceil` when the minimum input is updated and `floor` when the maximum input is updated.
+
+  ```js
+  const priceInput = new DualRangeInput($min, $max);
+
+  $min.value = 20;
+  priceInput.update('ceil');
+
+  $max.value = 37;
+  priceInput.update('floor');
+  ```
+
+- `destroy()`
+
+  Removes event listeners set by the library.
+
+  ```js
+  const priceInput = new DualRangeInput($min, $max);
+
+  priceInput.destroy();
+  ```
 
 ## TODO
 

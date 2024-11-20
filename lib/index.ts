@@ -22,7 +22,7 @@ class DualRangeInput {
 
   private updateCeil = () => this.update('ceil');
 
-  private update(method: 'floor' | 'ceil' = 'floor') {
+  update(method: 'floor' | 'ceil' = 'ceil') {
     const min = parseFloat(this.$min.min);
     const max = parseFloat(this.$max.max);
     const step = parseFloat(this.$min.step);
