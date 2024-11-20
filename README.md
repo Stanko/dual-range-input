@@ -1,4 +1,4 @@
-# Native Dual Range Input
+# Native Dual-range Input
 
 The native part is somewhat open for discussion - the library uses two native range inputs
 and about [fifty lines of JavaScript](https://cdn.jsdelivr.net/npm/@stanko/dual-range-input/dist/index.js) to make them work together.
@@ -44,7 +44,7 @@ new DualRangeInput($min, $max);
 // Add native event handlers
 ```
 
-### Styling
+## Styling
 
 Styles are controlled using CSS variables.
 
@@ -70,7 +70,11 @@ Here are all of the variables and their default values:
 }
 ```
 
-To create your own styling, just change the variables. For example here is code for the purple example from the demo page:
+Please note that `--dri-thumb-width` is used in JavaScript for calculations.
+
+### Custom theme
+
+To create your own theme, just change the variables. For example here is code for the purple example from the demo page:
 
 ```scss
 .dual-range-input--purple {
@@ -103,7 +107,7 @@ These are the default focus styles, feel free to override them.
 }
 ```
 
-### API
+## API
 
 - The only available public method is `destroy()` which removes event listeners set by the library.
 

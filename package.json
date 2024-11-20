@@ -1,7 +1,7 @@
 {
   "name": "@stanko/dual-range-input",
-  "description": "Native dual range input in about fifty lines of JavaScript",
-  "version": "0.9.5",
+  "description": "Native dual-range input in about fifty lines of JavaScript",
+  "version": "0.9.6",
   "private": false,
   "type": "module",
   "main": "dist/index.js",
@@ -25,7 +25,7 @@
     "url": "git+ssh://git@github.com/Stanko/dual-range-input.git"
   },
   "keywords": [
-    "dual range input",
+    "dual-range input",
     "range input",
     "input",
     "slider",
