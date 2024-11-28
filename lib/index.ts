@@ -1,10 +1,21 @@
 class DualRangeInput {
   $min: HTMLInputElement;
   $max: HTMLInputElement;
+  precision: number;
 
-  constructor($min: HTMLInputElement, $max: HTMLInputElement) {
+  /**
+   * @param {HTMLInputElement} $min - The range input element for the minimum value
+   * @param {HTMLInputElement} $max - The range input element for the maximum value
+   * @param {number} [precision=3] - The number of decimal places to round the mid value to, defaults to 3
+   */
+  constructor(
+    $min: HTMLInputElement,
+    $max: HTMLInputElement,
+    precision: number = 3
+  ) {
     this.$min = $min;
     this.$max = $max;
+    this.precision = precision;
 
     this.$min.addEventListener('input', this.updateCeil);
     this.$max.addEventListener('input', this.updateFloor);
@@ -48,8 +59,8 @@ class DualRangeInput {
     this.$min.style.flexBasis = `calc(${leftWidth}% + ${thumbWidthVariable})`;
     this.$max.style.flexBasis = `calc(${rightWidth}% + ${thumbWidthVariable})`;
 
-    this.$min.max = mid.toString();
-    this.$max.min = mid.toString();
+    this.$min.max = mid.toFixed(this.precision);
+    this.$max.min = mid.toFixed(this.precision);
 
     const minFill = (minValue - min) / (mid - min) || 0;
     const maxFill = (maxValue - mid) / (max - mid) || 0;

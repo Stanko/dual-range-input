@@ -28,7 +28,7 @@ Add the required markup:
 Import the CSS file located at:
 
 ```
-@stanko/dual-range-input/dist/index.css;
+./node_modules/@stanko/dual-range-input/dist/index.css
 ```
 
 Instantiate the library:
@@ -42,7 +42,16 @@ const $max = document.querySelector('#max');
 new DualRangeInput($min, $max);
 
 // Add native event handlers
+$min.addEventListener('input', () => {
+  // ...
+});
 ```
+
+### Parameters
+
+- **$min** `HTMLInputElement` - The range input element for the minimum value
+- **$max** `HTMLInputElement` - The range input element for the maximum value
+- **precision** `number`, optional, defaults to 3 - The number of decimal places to round the mid value to
 
 ## Styling
 
