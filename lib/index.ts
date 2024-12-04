@@ -1,4 +1,4 @@
-class DualRangeInput {
+class DualRangeInput extends HTMLElement {
   $min: HTMLInputElement;
   $max: HTMLInputElement;
   precision: number;
@@ -13,9 +13,20 @@ class DualRangeInput {
     $max: HTMLInputElement,
     precision: number = 3
   ) {
-    this.$min = $min;
-    this.$max = $max;
-    this.precision = precision;
+    super();
+
+    this.$min =
+      $min ||
+      this.querySelector('#min') ||
+      document.querySelectorAll('input')?.item(0) ||
+      document.createElement('input');
+    this.$max =
+      $max ||
+      this.querySelector('#max') ||
+      document.querySelectorAll('input')?.item(1) ||
+      document.createElement('input');
+    this.precision =
+      precision || parseInt(this.getAttribute('precision') || '3');
 
     this.$min.addEventListener('input', this.updateCeil);
     this.$max.addEventListener('input', this.updateFloor);
@@ -88,3 +99,5 @@ class DualRangeInput {
 }
 
 export default DualRangeInput;
+
+customElements.define('dual-range-input', DualRangeInput);
