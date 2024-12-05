@@ -23,6 +23,14 @@ class DualRangeInput {
     this.$min.addEventListener('focus', this.updateCeil);
     this.$max.addEventListener('focus', this.updateFloor);
 
+    // Unfortunately Safari doesn't trigger focus on mousedown or touchstart
+    // like other browsers do, so we have to listen for those events as well
+    this.$min.addEventListener('mousedown', this.updateCeil);
+    this.$max.addEventListener('mousedown', this.updateFloor);
+
+    this.$min.addEventListener('touchstart', this.updateCeil);
+    this.$max.addEventListener('touchstart', this.updateFloor);
+
     this.update();
 
     this.$min.dataset.ready = 'true';
@@ -84,6 +92,12 @@ class DualRangeInput {
 
     this.$min.removeEventListener('focus', this.updateFloor);
     this.$max.removeEventListener('focus', this.updateCeil);
+
+    this.$min.removeEventListener('mousedown', this.updateCeil);
+    this.$max.removeEventListener('mousedown', this.updateFloor);
+
+    this.$min.removeEventListener('touchstart', this.updateCeil);
+    this.$max.removeEventListener('touchstart', this.updateFloor);
   }
 }
 

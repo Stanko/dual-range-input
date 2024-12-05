@@ -1,12 +1,10 @@
 # Native Dual-range Input
 
 The native part is somewhat open for discussion - the library uses two native range inputs
-and about [fifty lines of JavaScript](https://cdn.jsdelivr.net/npm/@stanko/dual-range-input/dist/index.js) to make them work together.
+and about [sixty lines of JavaScript](https://cdn.jsdelivr.net/npm/@stanko/dual-range-input/dist/index.js) to make them work together.
 In my book, it is _native enough_.
 
 If you are interested in how it works, please check the [blog post](https://muffinman.io/blog/native-dual-range-input).
-
-React version is coming soon.
 
 ## Usage
 
@@ -144,6 +142,27 @@ These are the default focus styles, feel free to override them.
   priceInput.destroy();
   ```
 
+## WebComponent
+
+For now, for those who prefer WebComponents, here is a simple example:
+
+```js
+import DualRangeInput from '@stanko/dual-range-input';
+
+class DualRangeInputWebComponent extends HTMLElement {
+  constructor() {
+    super();
+
+    const $min = this.querySelector('input[type=range]:first-child');
+    const $max = this.querySelector('input[type=range]:nth-child(2)');
+
+    new DualRangeInput($min, $max);
+  }
+}
+
+customElements.define('dual-range-input', DualRangeInputWebComponent);
+```
+
 ## TODO
 
 - [x] Remove highlight on tap, on mobile
@@ -152,6 +171,7 @@ These are the default focus styles, feel free to override them.
 - [x] RTL
 - [x] Write a blog post
 - [ ] Add (p)react version
+- [ ] Explore web component approach
 
 ## Other
 
