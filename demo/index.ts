@@ -8,7 +8,9 @@ for (let i = 0; i <= 100; i++) {
   datalist.appendChild(option);
 }
 
-document.querySelectorAll('.demo').forEach(($demo) => {
+const $demos = document.querySelectorAll('.demo') as NodeListOf<HTMLDivElement>;
+
+$demos.forEach(($demo) => {
   const $min = $demo.querySelector('input:first-child') as HTMLInputElement;
   const $max = $demo.querySelector('input:last-child') as HTMLInputElement;
 
@@ -22,7 +24,7 @@ document.querySelectorAll('.demo').forEach(($demo) => {
   $min.addEventListener('input', addValues);
   $max.addEventListener('input', addValues);
 
-  new DualRangeInput($min, $max);
+  new DualRangeInput($min, $max, $demo.dataset.thumbWidth || '');
 
   addValues();
 });

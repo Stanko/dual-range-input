@@ -37,7 +37,8 @@ import DualRangeInput from '@stanko/dual-range-input';
 const $min = document.querySelector('#min');
 const $max = document.querySelector('#max');
 
-new DualRangeInput($min, $max);
+// The third parameter is the thumb width and should be the same as "--dri-thumb-width" CSS variable
+new DualRangeInput($min, $max, '1.25rem');
 
 // Add native event handlers
 $min.addEventListener('input', () => {
@@ -49,6 +50,7 @@ $min.addEventListener('input', () => {
 
 - **$min** `HTMLInputElement` - The range input element for the minimum value
 - **$max** `HTMLInputElement` - The range input element for the maximum value
+- **thumbWidth** `string` - Thumb width in CSS units. It must be the same as the `--dri-thumb-width` CSS variable. If it is not passed, the library will try to read it from the CSS variable. However, there is a weird edge case in Safari where JavaScript seems to be executed before CSS is applied. If you encounter this issue, you'll have to pass the value manually. If you find a more elegant solution, please let me know.
 - **precision** `number`, optional, defaults to 3 - The number of decimal places to round the mid value to
 
 ## Styling

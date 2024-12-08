@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.9.10
+
+08.12.2024.
+
+### Fixed
+
+- In Safari a race condition would happen when JavaScript was executed before CSS was loaded and CSS variables weren't available in JavaScript. Added a new property to allow users to pass thumb width variable manually.
+
 ## v0.9.9
 
 05.12.2024.

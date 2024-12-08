@@ -12,8 +12,8 @@
   <link href="https://muffinman.io/favicon/blue/icon.svg" rel="icon" type="image/svg+xml">
   <link href="https://muffinman.io/favicon/blue/icon-180.png" rel="apple-touch-icon">
   <link href="https://muffinman.io/favicon/blue/manifest.webmanifest" rel="manifest">
-  <script type="module" crossorigin src="./assets/index-DDqzJCs3.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BRPsqS6A.css">
+  <script type="module" crossorigin src="./assets/index-DGb4YFgH.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B-00bXQo.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
       &bull; <a href="https://muffinman.io/blog/native-dual-range-input">Blog post</a>
     </div>
 
-    <div class="demo">
+    <div class="demo" data-thumb-width="1.25rem">
       <div class="dual-range-input">
         <input type="range" min="0" max="100" step="1" value="25">
         <input type="range" min="0" max="100" step="1" value="75">
@@ -51,7 +51,7 @@
       Below you can see a few differently styled examples.
     </p>
 
-    <div class="demo demo--purple">
+    <div class="demo demo--purple" data-thumb-width="2rem">
       <div class="dual-range-input">
         <input type="range" min="20" max="30" step="0.1" value="20">
         <input type="range" min="20" max="30" step="0.1" value="25.5">
@@ -59,18 +59,18 @@
       <pre class="values"></pre>
     </div>
 
-    <div class="demo demo--pink">
+    <div class="demo demo--pink" data-thumb-width="2.5rem">
       <div class="dual-range-input">
-        <input type="range" min="0" max="100" step="1" value="25">
-        <input type="range" min="0" max="100" step="1" value="75">
+        <input type="range" min="0" max="100" step="1" value="50">
+        <input type="range" min="0" max="100" step="1" value="90">
       </div>
       <pre class="values"></pre>
     </div>
 
-    <div class="demo demo--thick">
+    <div class="demo demo--thick" data-thumb-width="2rem">
       <div class="dual-range-input">
-        <input type="range" min="0" max="100" step="1" value="25">
-        <input type="range" min="0" max="100" step="1" value="75">
+        <input type="range" min="0" max="100" step="1" value="15">
+        <input type="range" min="0" max="100" step="1" value="60">
       </div>
       <pre class="values"></pre>
     </div>
@@ -79,6 +79,24 @@
   <datalist id="tickmarks">
   </datalist>
 
+  <!-- Simulating loading CSS after the JS for testing purposes -->
+  <!-- Comment out CSS files from the head -->
+
+  <!-- 
+  <script>
+    setTimeout(() => {
+      const libCSS = document.createElement('link');
+      libCSS.rel = 'stylesheet';
+      libCSS.href = '/lib/index.scss';
+      document.head.appendChild(libCSS);
+
+      const demoCSS = document.createElement('link');
+      demoCSS.rel = 'stylesheet';
+      demoCSS.href = '/demo/index.scss';
+      document.head.appendChild(demoCSS);
+    }, 200)
+  </script> 
+  -->
 </body>
 
 </html>
