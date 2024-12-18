@@ -7,6 +7,7 @@ class DualRangeInput {
   /**
    * @param {HTMLInputElement} $min - The range input element for the minimum value
    * @param {HTMLInputElement} $max - The range input element for the maximum value
+   * @param {string} thumbWidth - Thumb width in CSS units. It must be the same as the `--dri-thumb-width` CSS variable. If it is not passed, the library will try to read it from the CSS variable. However, there is a weird edge case in Safari where JavaScript seems to be executed before CSS is applied. If you encounter this issue, you'll have to pass the value manually.
    * @param {number} [precision=3] - The number of decimal places to round the mid value to, defaults to 3
    */
   constructor(
@@ -47,7 +48,7 @@ class DualRangeInput {
   update(method: 'floor' | 'ceil' = 'ceil') {
     const min = parseFloat(this.$min.min);
     const max = parseFloat(this.$max.max);
-    const step = parseFloat(this.$min.step);
+    const step = parseFloat(this.$min.step) || 1;
     const minValue = parseFloat(this.$min.value);
     const maxValue = parseFloat(this.$max.value);
 

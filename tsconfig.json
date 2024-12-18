@@ -7,6 +7,7 @@
     "declaration": true,
     "outDir": "./dist",
     "pretty": true,
+    "jsx": "react",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -19,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "files": ["lib/index.ts"]
+  "files": ["lib/index.ts", "lib/react.tsx"]
 }

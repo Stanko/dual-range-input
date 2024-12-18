@@ -69,6 +69,7 @@ Here are all of the variables and their default values:
   --dri-thumb-active-color: #4eaaff;
   --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
   --dri-thumb-border-radius: 1rem;
+  --dri-thumb-border-width: 1px;
 
   --dri-track-height: 0.25rem;
   --dri-track-color: #ccc;
@@ -144,6 +145,38 @@ These are the default focus styles, feel free to override them.
   priceInput.destroy();
   ```
 
+## React component
+
+```jsx
+import React, { useState } from 'react';
+import DualRangeInput from '@stanko/dual-range-input/react';
+
+// Don't forget to import the CSS file
+import '@stanko/dual-range-input/dist/index.css';
+
+const MyComponent = () => {
+  const [min, setMin] = useState(10);
+  const [max, setMax] = useState(25);
+
+  <DualRangeInput thumbWidth="1.25rem">
+    <input
+      type="range"
+      min="0"
+      max="50"
+      value={min}
+      onChange={(e) => setMin(parseFloat(e.target.value))}
+    />
+    <input
+      type="range"
+      min="0"
+      max="50"
+      value={max}
+      onChange={(e) => setMax(parseFloat(e.target.value))}
+    />
+  </DualRangeInput>;
+};
+```
+
 ## WebComponent
 
 For now, for those who prefer WebComponents, here is a simple example:
@@ -172,7 +205,8 @@ customElements.define('dual-range-input', DualRangeInputWebComponent);
 - [x] Publish the package
 - [x] RTL
 - [x] Write a blog post
-- [ ] Add (p)react version
+- [x] Add (p)react version
+- [ ] Add separate exports and peer dependencies
 - [ ] Explore web component approach
 
 ## Other

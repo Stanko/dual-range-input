@@ -1,4 +1,5 @@
 import DualRangeInput from '../lib/index.ts';
+import './react.tsx';
 
 const datalist = document.querySelector('#tickmarks') as HTMLDataListElement;
 
@@ -44,45 +45,3 @@ const toggleDebug = document.querySelector(
 toggleDebug.addEventListener('click', () => {
   window.location.hash = window.location.hash ? '' : '#debug';
 });
-
-// React version is WIP
-
-// import React, { useState } from 'react';
-// import { createRoot } from 'react-dom/client';
-
-// import DualRangeInputComponent, { DualRangeValues } from '../lib/index.tsx';
-
-// const $app = document.querySelector('.react-app') as HTMLDivElement;
-// $app.classList.add('demo');
-
-// const root = createRoot($app);
-
-// const App = () => {
-//   const [values, setValues] = useState<DualRangeValues>([20, 30]);
-
-//   return (
-//     <div>
-//       <DualRangeInputComponent
-//         onChange={() => {}}
-//         onInput={(values) => setValues(values)}
-//         min={20}
-//         max={30}
-//         step={0.1}
-//         values={values}
-//       />
-//       <pre className="values">
-//         <span>0</span>
-//         <span>
-//           {values[0]} - {values[1]}
-//         </span>
-//         <span>30</span>
-//       </pre>
-//     </div>
-//   );
-// };
-
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );

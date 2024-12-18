@@ -50,7 +50,7 @@
   appearance: none;
   background-color: var(--dri-thumb-color);
   border-radius: var(--dri-thumb-border-radius);
-  border: 1px solid var(--dri-thumb-border-color);
+  border: var(--dri-thumb-border-width) solid var(--dri-thumb-border-color);
   box-shadow: none;
   box-sizing: border-box;
   height: var(--dri-thumb-height);
@@ -66,6 +66,7 @@
   --dri-thumb-active-color: #4eaaff;
   --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
   --dri-thumb-border-radius: 1rem;
+  --dri-thumb-border-width: 1px;
 
   --dri-track-height: 0.25rem;
   --dri-track-color: #ccc;
