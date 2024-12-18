@@ -9,8 +9,6 @@ type DualRangeInputProps = React.HTMLProps<HTMLDivElement> & {
   /** Component expects two HTML range inputs as children */
   children: [min: RangeInput, max: RangeInput];
   className?: string;
-  /** Thumb width in CSS units. It must be the same as the `--dri-thumb-width` CSS variable. If it is not passed, the library will try to read it from the CSS variable. However, there is a weird edge case in Safari where JavaScript seems to be executed before CSS is applied. If you encounter this issue, you'll have to pass the value manually. */
-  thumbWidth?: string;
   /**  The number of decimal places to round the mid value to, defaults to 3 */
   precision?: number;
 };
@@ -18,7 +16,6 @@ type DualRangeInputProps = React.HTMLProps<HTMLDivElement> & {
 const DualRangeInput: React.FC<DualRangeInputProps> = ({
   children,
   className = '',
-  thumbWidth = '',
   precision = 3,
   ...props
 }) => {
@@ -40,12 +37,7 @@ const DualRangeInput: React.FC<DualRangeInputProps> = ({
           'input:nth-child(2)'
         ) as HTMLInputElement;
 
-        instanceRef.current = new DualRangeInputClass(
-          $min,
-          $max,
-          thumbWidth,
-          precision
-        );
+        instanceRef.current = new DualRangeInputClass($min, $max, precision);
       } else {
         console.error('DualRangeInput expects two range inputs as children');
       }
@@ -55,12 +47,6 @@ const DualRangeInput: React.FC<DualRangeInputProps> = ({
       instanceRef.current?.destroy();
     };
   }, []);
-
-  useEffect(() => {
-    if (instanceRef.current) {
-      instanceRef.current.thumbWidthVariable = thumbWidth;
-    }
-  }, [thumbWidth]);
 
   return (
     <div

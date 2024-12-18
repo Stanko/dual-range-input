@@ -58,22 +58,32 @@
 }
 
 .dual-range-input {
+  // Height of the input
+  --dri-height: 1.5rem;
+
+  // Thumb size
   --dri-thumb-width: 1.25rem;
   --dri-thumb-height: 1.25rem;
 
+  // Thumb background color
   --dri-thumb-color: #ddd;
   --dri-thumb-hover-color: #a8d5ff;
   --dri-thumb-active-color: #4eaaff;
+
+  // Thumb border
   --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
+  --dri-thumb-border-hover-color: var(--dri-thumb-border-color);
+  --dri-thumb-border-active-color: var(--dri-thumb-border-color);
   --dri-thumb-border-radius: 1rem;
   --dri-thumb-border-width: 1px;
 
+  // Track size
   --dri-track-height: 0.25rem;
-  --dri-track-color: #ccc;
-  --dri-track-filled-color: #0084ff;
   --dri-track-border-radius: 1rem;
 
-  --dri-height: 1.5rem;
+  // Track color
+  --dri-track-color: #ccc;
+  --dri-track-filled-color: #0084ff;
 
   display: flex;
   height: var(--dri-height);
@@ -133,14 +143,17 @@
 
   input:hover::-moz-range-thumb {
     background-color: var(--dri-thumb-hover-color);
+    border-color: var(--dri-thumb-border-hover-color);
   }
 
   input:active::-moz-range-thumb {
     background-color: var(--dri-thumb-active-color);
+    border-color: var(--dri-thumb-border-active-color);
   }
 
   input:focus-visible::-moz-range-thumb {
     background-color: var(--dri-thumb-active-color);
+    border-color: var(--dri-thumb-border-active-color);
   }
 
   // ----- Webkit ----- //
@@ -164,20 +177,23 @@
     transform: translateY(-50%);
   }
 
-  input:hover::-webkit-slider-thumb {
-    background-color: var(--dri-thumb-hover-color);
-  }
-
   // Hide thumb until JavaScript updates it
   input:not([data-ready='true'])::-webkit-slider-thumb {
     opacity: 0;
   }
 
+  input:hover::-webkit-slider-thumb {
+    background-color: var(--dri-thumb-hover-color);
+    border-color: var(--dri-thumb-border-hover-color);
+  }
+
   input:active::-webkit-slider-thumb {
     background-color: var(--dri-thumb-active-color);
+    border-color: var(--dri-thumb-border-active-color);
   }
 
   input:focus-visible::-webkit-slider-thumb {
     background-color: var(--dri-thumb-active-color);
+    border-color: var(--dri-thumb-border-active-color);
   }
 }

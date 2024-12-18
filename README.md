@@ -37,8 +37,7 @@ import DualRangeInput from '@stanko/dual-range-input';
 const $min = document.querySelector('#min');
 const $max = document.querySelector('#max');
 
-// The third parameter is the thumb width and should be the same as "--dri-thumb-width" CSS variable
-new DualRangeInput($min, $max, '1.25rem');
+new DualRangeInput($min, $max);
 
 // Add native event handlers
 $min.addEventListener('input', () => {
@@ -50,7 +49,6 @@ $min.addEventListener('input', () => {
 
 - **$min** `HTMLInputElement` - The range input element for the minimum value
 - **$max** `HTMLInputElement` - The range input element for the maximum value
-- **thumbWidth** `string` - Thumb width in CSS units. It must be the same as the `--dri-thumb-width` CSS variable. If it is not passed, the library will try to read it from the CSS variable. However, there is a weird edge case in Safari where JavaScript seems to be executed before CSS is applied. If you encounter this issue, you'll have to pass the value manually. If you find a more elegant solution, please let me know.
 - **precision** `number`, optional, defaults to 3 - The number of decimal places to round the mid value to
 
 ## Styling
@@ -60,27 +58,35 @@ Styles are controlled using CSS variables.
 Here are all of the variables and their default values:
 
 ```css
-.dual-range-input {
-  --dri-thumb-width: 1.25rem;
-  --dri-thumb-height: 1.25rem;
+/* Height of the input */
+--dri-height: 1.5rem;
 
-  --dri-thumb-color: #ddd;
-  --dri-thumb-hover-color: #a8d5ff;
-  --dri-thumb-active-color: #4eaaff;
-  --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
-  --dri-thumb-border-radius: 1rem;
-  --dri-thumb-border-width: 1px;
+/* Thumb size */
+--dri-thumb-width: 1.25rem;
+--dri-thumb-height: 1.25rem;
 
-  --dri-track-height: 0.25rem;
-  --dri-track-color: #ccc;
-  --dri-track-filled-color: #0084ff;
-  --dri-track-border-radius: 1rem;
+/* Thumb background color */
+--dri-thumb-color: #ddd;
+--dri-thumb-hover-color: #a8d5ff;
+--dri-thumb-active-color: #4eaaff;
 
-  --dri-height: 1.5rem;
-}
+/* Thumb border */
+--dri-thumb-border-color: rgba(0, 0, 0, 0.1);
+--dri-thumb-border-hover-color: var(--dri-thumb-border-color);
+--dri-thumb-border-active-color: var(--dri-thumb-border-color);
+--dri-thumb-border-radius: 1rem;
+--dri-thumb-border-width: 1px;
+
+/* Track size */
+--dri-track-height: 0.25rem;
+--dri-track-border-radius: 1rem;
+
+/* Track color */
+--dri-track-color: #ccc;
+--dri-track-filled-color: #0084ff;
 ```
 
-Please note that `--dri-thumb-width` is used in JavaScript for calculations.
+Please note that `--dri-thumb-width` is used by the library through the CSS `calc()` methods.
 
 ### Custom theme
 
@@ -104,6 +110,8 @@ To create your own theme, just change the variables. For example here is code fo
 This gives you:
 
 ![Dual range input styled in purple](./purple-example.png)
+
+You can find more examples in the [demo SCSS file](./demo/index.scss).
 
 ### :focus-visible styles
 
@@ -147,6 +155,8 @@ These are the default focus styles, feel free to override them.
 
 ## React component
 
+Library also provides a React component that wraps the native inputs and the library itself.
+
 ```jsx
 import React, { useState } from 'react';
 import DualRangeInput from '@stanko/dual-range-input/react';
@@ -158,7 +168,7 @@ const MyComponent = () => {
   const [min, setMin] = useState(10);
   const [max, setMax] = useState(25);
 
-  <DualRangeInput thumbWidth="1.25rem">
+  <DualRangeInput>
     <input
       type="range"
       min="0"
@@ -206,7 +216,6 @@ customElements.define('dual-range-input', DualRangeInputWebComponent);
 - [x] RTL
 - [x] Write a blog post
 - [x] Add (p)react version
-- [ ] Add separate exports and peer dependencies
 - [ ] Explore web component approach
 
 ## Other

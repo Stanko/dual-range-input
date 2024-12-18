@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client';
 import DualRangeInputComponent from '../lib/react.tsx';
 
 const $app = document.querySelector('.react-app') as HTMLDivElement;
-$app.classList.add('demo');
 
 const root = createRoot($app);
 
@@ -13,8 +12,8 @@ const App = () => {
   const [max, setMax] = useState<number>(25);
 
   return (
-    <div className="demo demo--react">
-      <DualRangeInputComponent thumbWidth="1.25rem">
+    <div className="demo-react">
+      <DualRangeInputComponent>
         <input
           type="range"
           min="0"

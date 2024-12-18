@@ -25,7 +25,7 @@ $demos.forEach(($demo) => {
   $min.addEventListener('input', addValues);
   $max.addEventListener('input', addValues);
 
-  new DualRangeInput($min, $max, $demo.dataset.thumbWidth || '');
+  new DualRangeInput($min, $max);
 
   addValues();
 });

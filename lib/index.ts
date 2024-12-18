@@ -2,24 +2,20 @@ class DualRangeInput {
   $min: HTMLInputElement;
   $max: HTMLInputElement;
   precision: number;
-  thumbWidthVariable: string;
 
   /**
    * @param {HTMLInputElement} $min - The range input element for the minimum value
    * @param {HTMLInputElement} $max - The range input element for the maximum value
-   * @param {string} thumbWidth - Thumb width in CSS units. It must be the same as the `--dri-thumb-width` CSS variable. If it is not passed, the library will try to read it from the CSS variable. However, there is a weird edge case in Safari where JavaScript seems to be executed before CSS is applied. If you encounter this issue, you'll have to pass the value manually.
    * @param {number} [precision=3] - The number of decimal places to round the mid value to, defaults to 3
    */
   constructor(
     $min: HTMLInputElement,
     $max: HTMLInputElement,
-    thumbWidth: string = '',
     precision: number = 3
   ) {
     this.$min = $min;
     this.$max = $max;
     this.precision = precision;
-    this.thumbWidthVariable = thumbWidth;
 
     this.$min.addEventListener('input', this.updateCeil);
     this.$max.addEventListener('input', this.updateFloor);
@@ -46,6 +42,8 @@ class DualRangeInput {
   private updateCeil = () => this.update('ceil');
 
   update(method: 'floor' | 'ceil' = 'ceil') {
+    const thumbWidthVar = 'var(--dri-thumb-width)';
+
     const min = parseFloat(this.$min.min);
     const max = parseFloat(this.$max.max);
     const step = parseFloat(this.$min.step) || 1;
@@ -57,21 +55,11 @@ class DualRangeInput {
 
     const range = max - min;
 
-    // If the thumb width wasn't passed in, get it from the CSS variable
-    if (!this.thumbWidthVariable) {
-      this.thumbWidthVariable = getComputedStyle(this.$min).getPropertyValue(
-        '--dri-thumb-width'
-      );
-    }
+    const leftWidth = (((mid - min) / range) * 100).toFixed(this.precision);
+    const rightWidth = (((max - mid) / range) * 100).toFixed(this.precision);
 
-    const thumbWidth = parseFloat(this.thumbWidthVariable);
-    const thumbWidthUnit = this.thumbWidthVariable.replace(/^[\d\.]+/, ''); // px, em, rem...
-
-    const leftWidth = ((mid - min) / range) * 100;
-    const rightWidth = ((max - mid) / range) * 100;
-
-    this.$min.style.flexBasis = `calc(${leftWidth}% + ${this.thumbWidthVariable})`;
-    this.$max.style.flexBasis = `calc(${rightWidth}% + ${this.thumbWidthVariable})`;
+    this.$min.style.flexBasis = `calc(${leftWidth}% + ${thumbWidthVar})`;
+    this.$max.style.flexBasis = `calc(${rightWidth}% + ${thumbWidthVar})`;
 
     this.$min.max = mid.toFixed(this.precision);
     this.$max.min = mid.toFixed(this.precision);
@@ -79,20 +67,19 @@ class DualRangeInput {
     const minFill = (minValue - min) / (mid - min) || 0;
     const maxFill = (maxValue - mid) / (max - mid) || 0;
 
-    const minFillThumb = ((0.5 - minFill) * thumbWidth).toFixed(this.precision);
-    const maxFillThumb = ((0.5 - maxFill) * thumbWidth).toFixed(this.precision);
+    const minFillPercentage = (minFill * 100).toFixed(this.precision);
+    const maxFillPercentage = (maxFill * 100).toFixed(this.precision);
+
+    const minFillThumb = (0.5 - minFill).toFixed(this.precision);
+    const maxFillThumb = (0.5 - maxFill).toFixed(this.precision);
 
     this.$min.style.setProperty(
       '--dri-gradient-position',
-      `calc(${(minFill * 100).toFixed(
-        this.precision
-      )}% + ${minFillThumb}${thumbWidthUnit})`
+      `calc(${minFillPercentage}% + (${minFillThumb} * ${thumbWidthVar}))`
     );
     this.$max.style.setProperty(
       '--dri-gradient-position',
-      `calc(${(maxFill * 100).toFixed(
-        this.precision
-      )}% + ${maxFillThumb}${thumbWidthUnit})`
+      `calc(${maxFillPercentage}% + (${maxFillThumb} * ${thumbWidthVar}))`
     );
   }
 

@@ -126,8 +126,17 @@ a,
     --dri-thumb-hover-color: rgb(236, 154, 0);
     --dri-thumb-active-color: rgb(207, 134, 0);
   }
+
   input:last-child {
     outline: 1px solid var(--dri-thumb-hover-color);
+  }
+
+  input::-moz-range-thumb {
+    opacity: 0.6;
+  }
+
+  input::-webkit-slider-thumb {
+    opacity: 0.6;
   }
 }
 
@@ -178,4 +187,30 @@ a,
   --dri-thumb-border-color: rgba(0, 0, 0, 0.1);
   --dri-thumb-height: 2rem;
   --dri-thumb-width: 2rem;
+}
+
+.demo--outline .dual-range-input {
+  --main-color: rgb(174, 95, 203);
+  --active-color: rgb(111, 0, 152);
+
+  --dri-height: 2rem;
+
+  --dri-track-height: 0.25rem;
+  --dri-track-border-radius: 1rem;
+  --dri-track-color: var(--main-color);
+  --dri-track-filled-color: var(--main-color);
+
+  --dri-thumb-color: #fff;
+  --dri-thumb-hover-color: #fff;
+  --dri-thumb-active-color: var(--active-color);
+  --dri-thumb-border-color: var(--main-color);
+  --dri-thumb-height: 2rem;
+  --dri-thumb-width: 2rem;
+  --dri-thumb-border-width: 0.25rem;
+  --dri-thumb-border-hover-color: var(--active-color);
+  --dri-thumb-border-active-color: var(--active-color);
+
+  &:has(input:focus-visible) {
+    outline-color: rgb(111, 0, 152, 0.5);
+  }
 }
