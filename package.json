@@ -1,7 +1,7 @@
 {
   "name": "@stanko/dual-range-input",
   "description": "Native dual-range input in about sixty lines of JavaScript",
-  "version": "0.9.10",
+  "version": "1.0.0",
   "private": false,
   "type": "module",
   "main": "dist/index.js",
@@ -16,9 +16,6 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@types/react": "^19.0.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "sass": "^1.80.3",
     "typescript": "^5.6.3",
     "vite": "^5.4.9"

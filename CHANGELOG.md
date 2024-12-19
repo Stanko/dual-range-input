@@ -7,7 +7,6 @@
 ### Changed
 
 - **Breaking Change**: Removed `thumbWidth` property; solved it more elegantly using CSS calc()
-- Added React component
 
 ## v0.9.10
 

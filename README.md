@@ -153,40 +153,6 @@ These are the default focus styles, feel free to override them.
   priceInput.destroy();
   ```
 
-## React component
-
-Library also provides a React component that wraps the native inputs and the library itself.
-
-```jsx
-import React, { useState } from 'react';
-import DualRangeInput from '@stanko/dual-range-input/react';
-
-// Don't forget to import the CSS file
-import '@stanko/dual-range-input/dist/index.css';
-
-const MyComponent = () => {
-  const [min, setMin] = useState(10);
-  const [max, setMax] = useState(25);
-
-  <DualRangeInput>
-    <input
-      type="range"
-      min="0"
-      max="50"
-      value={min}
-      onChange={(e) => setMin(parseFloat(e.target.value))}
-    />
-    <input
-      type="range"
-      min="0"
-      max="50"
-      value={max}
-      onChange={(e) => setMax(parseFloat(e.target.value))}
-    />
-  </DualRangeInput>;
-};
-```
-
 ## WebComponent
 
 For now, for those who prefer WebComponents, here is a simple example:
@@ -215,7 +181,7 @@ customElements.define('dual-range-input', DualRangeInputWebComponent);
 - [x] Publish the package
 - [x] RTL
 - [x] Write a blog post
-- [x] Add (p)react version
+- [ ] Add (p)react version
 - [ ] Explore web component approach
 
 ## Other

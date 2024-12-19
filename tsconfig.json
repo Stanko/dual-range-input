@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "files": ["lib/index.ts", "lib/react.tsx"]
+  "files": ["lib/index.ts"]
 }

@@ -1,5 +1,4 @@
 import DualRangeInput from '../lib/index.ts';
-import './react.tsx';
 
 const datalist = document.querySelector('#tickmarks') as HTMLDataListElement;
 
