@@ -84,6 +84,9 @@ Here are all of the variables and their default values:
 /* Track color */
 --dri-track-color: #ccc;
 --dri-track-filled-color: #0084ff;
+/* Optional to create a gradient */
+--dri-track-filled-gradient-mid-color: var(--dri-track-filled-color);
+--dri-track-filled-gradient-end-color: var(--dri-track-filled-color);
 ```
 
 Please note that `--dri-thumb-width` is used by the library through the CSS `calc()` methods.

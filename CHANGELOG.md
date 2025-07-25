@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1
+
+25.07.2025.
+
+- Styling - added `--dri-track-filled-gradient-color` to support adding gradient to the track.
+
 ## v1.0.0
 
 18.12.2024.

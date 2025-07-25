@@ -1,7 +1,7 @@
 {
   "name": "@stanko/dual-range-input",
   "description": "Native dual-range input in about sixty lines of JavaScript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "type": "module",
   "main": "dist/index.js",

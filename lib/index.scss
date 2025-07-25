@@ -14,14 +14,16 @@
   background-image: linear-gradient(
     to right,
     var(--dri-track-color) var(--dri-gradient-position),
-    var(--dri-track-filled-color) var(--dri-gradient-position)
+    var(--dri-track-filled-color) var(--dri-gradient-position),
+    var(--dri-track-filled-gradient-mid-color)
   );
 
   [dir='rtl'] & {
     background-image: linear-gradient(
       to left,
       var(--dri-track-color) var(--dri-gradient-position),
-      var(--dri-track-filled-color) var(--dri-gradient-position)
+      var(--dri-track-filled-color) var(--dri-gradient-position),
+      var(--dri-track-filled-gradient-mid-color)
     );
   }
 }
@@ -32,14 +34,16 @@
 
   background-image: linear-gradient(
     to right,
-    var(--dri-track-filled-color) var(--dri-gradient-position),
+    var(--dri-track-filled-gradient-mid-color),
+    var(--dri-track-filled-gradient-end-color) var(--dri-gradient-position),
     var(--dri-track-color) var(--dri-gradient-position)
   );
 
   [dir='rtl'] & {
     background-image: linear-gradient(
       to left,
-      var(--dri-track-filled-color) var(--dri-gradient-position),
+      var(--dri-track-filled-gradient-mid-color),
+      var(--dri-track-filled-gradient-end-color) var(--dri-gradient-position),
       var(--dri-track-color) var(--dri-gradient-position)
     );
   }
@@ -84,6 +88,8 @@
   // Track color
   --dri-track-color: #ccc;
   --dri-track-filled-color: #0084ff;
+  --dri-track-filled-gradient-mid-color: var(--dri-track-filled-color);
+  --dri-track-filled-gradient-end-color: var(--dri-track-filled-color);
 
   display: flex;
   height: var(--dri-height);
